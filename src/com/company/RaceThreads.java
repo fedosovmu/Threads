@@ -37,7 +37,7 @@ class ThreadOne extends Thread {
 }
 
 class ThreadTwo implements Runnable {
-    Resourse _resourse;
+    private Resourse _resourse;
 
     ThreadTwo (Resourse resourse) {
         _resourse = resourse;

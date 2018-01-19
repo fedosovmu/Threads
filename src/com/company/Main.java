@@ -8,7 +8,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         System.out.println("Выберите пример:");
         System.out.println("1 Гонки потоков");
-        System.out.println("2");
+        System.out.println("2 DeadLock");
         System.out.println("3");
         System.out.print("пример:");
         int mode = in.nextInt();
@@ -18,6 +18,8 @@ public class Main {
                 RaceThreads.Start();
                 break;
             case 2:
+                DeadLock.Start();
+                break;
             case 3:
             default:
                 System.out.println("Недопустимое значение");
