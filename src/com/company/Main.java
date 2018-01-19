@@ -9,9 +9,10 @@ public class Main {
         System.out.println("Выберите пример:");
         System.out.println("1 Гонки потоков");
         System.out.println("2 DeadLock");
-        System.out.println("3");
-        System.out.print("пример:");
-        int mode = in.nextInt();
+        System.out.println("3 Семафор");
+        System.out.print("пример:\n");
+        //int mode = in.nextInt();
+        int mode = 3;
 
         switch (mode) {
             case 1:
@@ -21,6 +22,8 @@ public class Main {
                 DeadLock.Start();
                 break;
             case 3:
+                new Counter().Start();
+                break;
             default:
                 System.out.println("Недопустимое значение");
                 break;
