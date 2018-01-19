@@ -7,7 +7,10 @@ public class DeadLock {
         Object lockA = new Object();
         Object lockB = new Object();
 
-
+        ThreadA threadA = new ThreadA(lockA, lockB);
+        ThreadB threadB = new ThreadB(lockA, lockB);
+        threadA.start();
+        threadB.start();
     }
 }
 
@@ -25,13 +28,13 @@ class ThreadA extends Thread {
         synchronized (lockA) {
             System.out.println("thread A lock A");
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             }
             catch (InterruptedException e) { }
             synchronized (lockB) {
                 System.out.println("thread A lock B");
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 }
                 catch (InterruptedException e) { }
             }
@@ -53,13 +56,13 @@ class ThreadB extends Thread {
         synchronized (lockB) {
             System.out.println("thread B lock B");
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             }
             catch (InterruptedException e) { }
             synchronized (lockA) {
                 System.out.println("thread B lock A");
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 }
                 catch (InterruptedException e) { }
             }
