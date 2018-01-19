@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // write your code here
         Scanner in = new Scanner(System.in);
         System.out.println("Выберите пример:");

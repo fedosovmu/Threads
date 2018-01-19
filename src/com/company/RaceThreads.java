@@ -1,7 +1,7 @@
 package com.company;
 
 public class RaceThreads {
-    public static void Start() {
+    public static void Start() throws InterruptedException {
         Resourse resourse = new Resourse();
 
         ThreadOne one = new ThreadOne(resourse);
@@ -11,10 +11,8 @@ public class RaceThreads {
         Thread thread2 = new Thread(two);
         thread2.start();
 
-        try {
-            Thread.sleep(1000);
-        }
-        catch (Exception e) { }
+        one.join();
+        thread2.join();
         System.out.println(resourse.Counter + " / " + 2000000);
     }
 
@@ -30,8 +28,8 @@ class ThreadOne extends Thread {
     @Override
     public void run() {
         System.out.println("thread One run");
-        for (int i = 0; i < 1000000; i++)
-            // Решается с помощью synchronized (_resourse)
+        for (int i = 0; i < 1000000; i++) {
+            // решается с помощью synchronized (_resourse)
             _resourse.Counter++;
         }
     }
